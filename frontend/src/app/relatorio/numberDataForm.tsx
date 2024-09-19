@@ -8,6 +8,7 @@ type Props = {
   typeData:
     | "Matriculados"
     | "Transferências"
+    | "Documentos pendentes"
     | "Cancelados"
     | "Fluxo de Pessoas"
     | "Leads"
@@ -40,7 +41,10 @@ export default function NumberDataForm({
   return (
     <section className="border-2 p-3 border-slate-200 rounded-md">
       <label htmlFor={typeData}>
-        <p className="w-fit text-xl mb-6">{text}</p>
+        <div className="flex gap-1">
+          <p className="w-fit text-xl mb-6">{text}</p>
+          {/* {(typeData === "Leads" || typeData === 'Egressos') && <p className="text-red-600 text-xl">*</p>} */}
+        </div>
         <Input
           id={typeData}
           type="text"
