@@ -5,7 +5,7 @@ import {
   higherCourseLength,
   higherNameLength,
   higherTitleLength,
-} from "./page";
+} from "./helpers";
 import type { Columns } from "@/types/Columns";
 import Link from "next/link";
 

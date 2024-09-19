@@ -9,7 +9,7 @@ import {
   higherCourseLength,
   higherNameLength,
   higherTitleLength,
-} from "./page";
+} from "./helpers";
 import InputAlunoFilter from "./InputAlunoFilter";
 import CheckBoxAluno from "./CheckBoxAluno";
 import DropDownColumns from "./DropDownColumns";
