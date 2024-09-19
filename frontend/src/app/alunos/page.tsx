@@ -1,6 +1,6 @@
 import type { Aluno } from "@/types/Aluno";
-// import data from "../../../../backend/prisma/seeds/comissao_janeiro.json";
-import data from "../../../mockjson.json";
+import data from "../../../../backend/prisma/seeds/comissao_janeiro.json";
+// import data from "../../../mockjson.json";
 import TableSort from "./TableSort";
 
 

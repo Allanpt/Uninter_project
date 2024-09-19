@@ -1,6 +1,7 @@
 "use client";
 import type { Aluno } from "@/types/Aluno";
-import data from "../../../mockjson.json";
+// import data from "../../../mockjson.json";
+import data from "../../../../backend/prisma/seeds/comissao_janeiro.json";
 import { useEffect, useState } from "react";
 import CardProfit from "./cardProfit";
 import { Input } from "@/components/ui/input";

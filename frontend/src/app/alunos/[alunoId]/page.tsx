@@ -3,8 +3,8 @@ import type { Aluno } from "@/types/Aluno";
 
 import { usePathname } from "next/navigation";
 import React, { useMemo } from "react";
-import data from "../../../../mockjson.json";
-// import data from "../../../../../backend/prisma/seeds/comissao_janeiro.json";
+// import data from "../../../../mockjson.json";
+import data from "../../../../../backend/prisma/seeds/comissao_janeiro.json";
 
 import CardData from "./cardData";
 import { IoPersonOutline } from "react-icons/io5";
