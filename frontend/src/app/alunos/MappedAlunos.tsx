@@ -18,11 +18,11 @@ export default function MappedAlunos({ alunos, columns }: Props) {
 
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 min-w-max">
       {alunos.map((aluno) => (
         <Link
           key={aluno.Titulo}
-          className="flex flex-row justify-between w-full bg-slate-100 cursor-pointer hover:bg-slate-50"
+          className="flex flex-row justify-between w-full bg-slate-100 cursor-pointer hover:bg-slate-50 min-w-full"
           href={`/alunos/${aluno.Titulo}`}
         >
           {columns.includes("titulo") && (

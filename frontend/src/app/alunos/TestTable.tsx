@@ -226,7 +226,6 @@ export function DataTableDemo() {
                     className="capitalize"
                     checked={column.getIsVisible()}
                     onCheckedChange={(value) => {
-                      console.log(value);
                       
                       return column.toggleVisibility(!!value)
                     }

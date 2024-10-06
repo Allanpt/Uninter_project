@@ -15,9 +15,13 @@ export default function InputAlunoFilter({
   return (
     <>
       <div className="flex flex-col sm:flex-row max-w-[500px] w-full gap-5">
-        <label className="flex gap-1 items-center relative w-full ">
+        <label
+          htmlFor="searchInput"
+          className="flex gap-1 items-center relative w-full "
+        >
           <CiSearch size={"30px"} className="absolute left-1" />
           <Input
+            id="searchInput"
             onChange={(e) => setSearchValue(e.target.value)}
             onKeyDown={(e) => {
               if (e.key === "Enter") {

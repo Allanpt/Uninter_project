@@ -8,7 +8,7 @@ export default function Login() {
     <div className="flex min-h-screen flex-col items-center p-24 gap-20" >
       <Image
         src="/uninter-logo-2.png"
-        alt="Vercel Logo"
+        alt="Uninter Logo"
         width={500}
         height={103}
         priority

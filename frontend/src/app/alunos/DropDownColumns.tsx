@@ -7,21 +7,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import type { Columns } from "@/types/Columns";
 import { ChevronDown } from "lucide-react";
-import React, { type Dispatch, type SetStateAction } from "react";
+import React, { useMemo, type Dispatch, type SetStateAction } from "react";
+import { initialColumns } from "./TableSort";
 
 type Props = {
   tableColumn: Columns[];
   setTableColumn: Dispatch<SetStateAction<Columns[]>>;
 };
-
-const initialColumns: Columns[] = [
-  "titulo",
-  "aluno",
-  "tipo",
-  "comissao",
-  "dataLiquidada",
-  "curso",
-];
 
 function cleanColumns(columns: Columns[]) {
   return columns.map((el) => {
@@ -60,7 +52,10 @@ export default function DropDownColumns({
   tableColumn,
   setTableColumn,
 }: Props) {
-  const cleanTableColumn = cleanColumns(tableColumn);
+  
+  const cleanTableColumn = useMemo(() => {
+    return cleanColumns(tableColumn);
+  }, [tableColumn]);
 
   return (
     <div className="self-end">
@@ -77,13 +72,10 @@ export default function DropDownColumns({
               key={column}
               className="capitalize"
               onCheckedChange={(value) => {
-
                 const strToColumnType = strToColumns(column);
 
                 if (!strToColumnType) return;
 
-                console.log('aqui');
-                
                 if (!value) {
                   setTableColumn((state) =>
                     state.filter((el) => el !== strToColumns(column))

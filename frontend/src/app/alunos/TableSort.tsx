@@ -2,7 +2,7 @@
 
 import { FaSort, FaSortDown, FaSortUp } from "react-icons/fa6";
 import MappedAlunos from "./MappedAlunos";
-import { SetStateAction, useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import type { Aluno } from "@/types/Aluno";
 import {
   higherCashLength,
@@ -63,17 +63,16 @@ export default function TableSort({ alunos }: Props) {
   const [selectedPayments, setSelectedPayments] = useState<string[]>([]);
   const [columns, setColumns] = useState<Columns[]>(initialColumns);
 
-  const handleCheckboxChange = (event: {
-    target: { name: string; checked: boolean };
-  }) => {
-    const { name, checked } = event.target;
+  const handleCheckboxChange = useCallback(
+    (event: { target: { name: string; checked: boolean } }) => {
+      const { name, checked } = event.target;
 
-    if (checked) {
-      setSelectedPayments((prev) => [...prev, name]);
-    } else {
-      setSelectedPayments((prev) => prev.filter((payment) => payment !== name));
-    }
-  };
+      setSelectedPayments((prev) =>
+        checked ? [...prev, name] : prev.filter((payment) => payment !== name)
+      );
+    },
+    []
+  );
 
   const paymentTypes = useMemo(() => {
     return Array.from(new Set(alunos.map((el) => el.Tipo_Servico)));
@@ -87,12 +86,12 @@ export default function TableSort({ alunos }: Props) {
     setSortDate("Base");
   }, []);
 
-  function handleSearchAluno() {
+  const handleSearchAluno = useCallback(() => {
     const filtered = alunos.filter((el) =>
       el.Nome.toLowerCase().includes(searchValue.toLowerCase())
     );
     setFilteredData(filtered);
-  }
+  }, [alunos, searchValue]);
 
   const sortedData = useCallback(() => {
     return [...filteredData]

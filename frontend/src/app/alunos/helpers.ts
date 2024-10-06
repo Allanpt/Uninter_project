@@ -1,5 +1,7 @@
 import type { Aluno } from "@/types/Aluno";
-import data from "../../../../backend/prisma/seeds/comissao_janeiro.json";
+import { fetchData } from "@/lib/apiHelper";
+
+const data = fetchData();
 
 export const alunos: Aluno[] = data;
 
